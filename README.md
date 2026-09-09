@@ -18,3 +18,26 @@ interface fastEthernet 0/5  \
 end  
 
 write memory  
+
+#Задание 2.
+
+Для отдела мониторинга необходимо настроить view monitoring, в котором можно будет делать следующие операции:
+
+Смотреть логи устройства  \
+Смотреть таблицу MAC адресов  \
+Смотреть таблицу arp  \
+Смотреть полную конфигурацию свитча  \
+Отправьте конфигурацию parser view monitoring.  \
+
+enable view  \
+configure terminal
+
+parser view monitoring inclusive  \
+ secret 5 your_password_here
+
+ commands exec include show logging  \
+ commands exec include show mac address-table  \
+ commands exec include show arp  \
+ commands exec include show running-config  \
+
+end
